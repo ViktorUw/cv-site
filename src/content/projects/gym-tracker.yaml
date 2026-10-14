@@ -2,9 +2,7 @@ order: 2
 status: live
 stack: [Flutter, Dart, SQLite]
 links:
-  {}
-  # TODO: add the repository link
-  # github: https://github.com/your-name/gym-tracker
+  github: https://github.com/ViktorUw/gym_tracker_app
 
 # TODO: check the description
 en:

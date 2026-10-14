@@ -2,7 +2,6 @@
 
 name: Viktor Vasylyshyn
 
-# TODO: put your photo at src/assets/photo.jpg and uncomment the line below
 photo: ../assets/photo.jpg
 
 # TODO (later): put a PDF in public/ and set its path, e.g. /cv.pdf.

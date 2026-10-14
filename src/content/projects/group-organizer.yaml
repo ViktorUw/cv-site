@@ -2,9 +2,7 @@ order: 3
 status: live
 stack: [C++]
 links:
-  {}
-  # TODO: add the repository link
-  # github: https://github.com/your-name/group-organizer
+  github: https://github.com/ViktorUw/groupOrg
 
 # TODO: describe what the app actually does, this text is a placeholder
 en:

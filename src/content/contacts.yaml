@@ -6,22 +6,21 @@
   href: mailto:vvasylyshyn.viktor@gmail.com
   label: vvasylyshyn.viktor@gmail.com
 
-# TODO: uncomment and fill in the rest
 
-# - id: linkedin
-#   kind: linkedin
-#   href: https://www.linkedin.com/in/your-profile/
-#   label: linkedin.com/in/your-profile
+- id: linkedin
+  kind: linkedin
+  href: https://www.linkedin.com/in/viktor-vasylyshyn-5bb7512a1
+  label: linkedin.com/in/viktor-vasylyshyn
 
-# - id: github
-#   kind: github
-#   href: https://github.com/your-name
-#   label: github.com/your-name
+- id: github
+  kind: github
+  href: https://github.com/ViktorUw
+  label: github.com/ViktorUw
 
-# - id: telegram
-#   kind: telegram
-#   href: https://t.me/your_handle
-#   label: "@your_handle"
+- id: telegram
+  kind: telegram
+  href: https://t.me/vasylyshyn_viktor
+  label: "@vasylyshyn_viktor"
 
 # Phone number: think twice before publishing it, bots collect numbers from websites
 # - id: phone

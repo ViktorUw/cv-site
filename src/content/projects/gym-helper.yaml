@@ -3,9 +3,7 @@ order: 1
 status: live
 stack: [Python, Django, Docker, CI/CD]
 links:
-  {}
-  # TODO: add the repository link
-  # github: https://github.com/your-name/gym-helper
+  github: https://github.com/ViktorUw/Gym-Helper
 
 # TODO: check the description, I guessed what the app does from its name
 en:

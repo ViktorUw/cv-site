@@ -1,23 +1,13 @@
 # Education, newest first.
 
 - id: uwr
-  start: "TODO" # TODO: start year
+  start: "2022"
   end: "2026"
   en:
     institution: University of Wrocław
-    degree: Computer Science # TODO: bachelor's or master's?
-  pl:
-    institution: Uniwersytet Wrocławski
-    degree: Informatyka # TODO: studia I czy II stopnia?
-
-- id: applied-cs
-  start: "TODO" # TODO: years
-  end: "TODO"
-  en:
-    institution: "TODO: institution name"
     degree: Applied Computer Science and Measurement Systems
     note: "Diploma project: Gym Tracker, a mobile app in Flutter" # TODO: check
   pl:
-    institution: "TODO: nazwa uczelni"
+    institution: Uniwersytet Wrocławski
     degree: Informatyka stosowana i systemy pomiarowe
     note: "Projekt dyplomowy: Gym Tracker, aplikacja mobilna we Flutterze" # TODO: check
