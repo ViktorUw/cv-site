@@ -1,0 +1,21 @@
+---
+// A page section hanging off the connector rail, like a node in a workflow.
+interface Props {
+	id: string;
+	title: string;
+}
+const { id, title } = Astro.props;
+---
+
+<section id={id} aria-labelledby={`${id}-title`} class="py-16 sm:py-24">
+	<h2 id={`${id}-title`} class="relative max-w-[30ch] text-2xl font-semibold tracking-tight text-balance">
+		<span
+			aria-hidden="true"
+			class="absolute top-[0.6em] left-[calc(-1*var(--rail-gap)-4.5px)] size-2.5 -translate-y-1/2 rounded-full border-[1.5px] border-muted/60 bg-bg"
+		></span>
+		{title}
+	</h2>
+	<div class="mt-8 sm:mt-10">
+		<slot />
+	</div>
+</section>

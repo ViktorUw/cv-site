@@ -1,0 +1,36 @@
+---
+import { getAbsoluteLocaleUrl } from 'astro:i18n';
+import '../styles/global.css';
+import ThemeScript from '../components/ThemeScript.astro';
+import { defaultLang, languages, type Lang } from '../lib/i18n';
+
+interface Props {
+	lang: Lang;
+	title: string;
+	description: string;
+}
+const { lang, title, description } = Astro.props;
+const canonical = getAbsoluteLocaleUrl(lang);
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		{languages.map((code) => <link rel="alternate" hreflang={code} href={getAbsoluteLocaleUrl(code)} />)}
+		<link rel="alternate" hreflang="x-default" href={getAbsoluteLocaleUrl(defaultLang)} />
+		<meta name="theme-color" content="#eef1f4" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#141a22" media="(prefers-color-scheme: dark)" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" sizes="32x32" />
+		<meta name="generator" content={Astro.generator} />
+		<ThemeScript />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

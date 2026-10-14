@@ -51,6 +51,7 @@ const ui = defineCollection({
 	loader: glob({ pattern: 'ui.yaml', base: './src/content' }),
 	schema: localized({
 		skipToContent: z.string(),
+		menu: z.string(),
 		nav: z.object({
 			about: z.string(),
 			process: z.string(),

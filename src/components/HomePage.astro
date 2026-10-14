@@ -1,0 +1,47 @@
+---
+// The whole one-page site. src/pages/index.astro and src/pages/pl/index.astro
+// render it with their language.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from './Header.astro';
+import Section from './Section.astro';
+import { getProfile, getUi, type Lang } from '../lib/i18n';
+
+interface Props {
+	lang: Lang;
+}
+const { lang } = Astro.props;
+const profile = await getProfile(lang);
+const ui = await getUi(lang);
+const sectionIds = ['about', 'process', 'projects', 'skills', 'education', 'contact'] as const;
+---
+
+<BaseLayout lang={lang} title={profile.seoTitle} description={profile.seoDescription}>
+	<a
+		href="#main"
+		class="sr-only rounded-md bg-ink px-4 py-2 text-bg focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
+	>
+		{ui.skipToContent}
+	</a>
+
+	<Header lang={lang} name={profile.name} ui={ui} />
+
+	<main id="main" class="mx-auto max-w-page px-5 sm:px-8">
+		<!-- Hero: placeholder until stage 5 brings the flow diagram -->
+		<div class="py-20 sm:py-28">
+			<p class="text-muted">{profile.role}</p>
+			<h1 class="mt-4 max-w-[20ch] text-3xl font-semibold tracking-tight text-balance">{profile.headline}</h1>
+			<p class="mt-6 max-w-[52ch] text-lg text-muted">{profile.intro}</p>
+		</div>
+
+		<!-- The rail: one line running through every section -->
+		<div class="border-l border-line pl-(--rail-gap) [--rail-gap:--spacing(6)] sm:[--rail-gap:--spacing(12)]">
+			{
+				sectionIds.map((id) => (
+					<Section id={id} title={ui.sections[id]}>
+						<p class="text-muted">Content arrives in stage 4.</p>
+					</Section>
+				))
+			}
+		</div>
+	</main>
+</BaseLayout>

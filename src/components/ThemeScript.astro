@@ -1,0 +1,24 @@
+---
+// Runs before the page paints, so a dark-theme visitor never sees a light flash.
+// The stored choice wins; without one, the site follows the system setting.
+---
+
+<script is:inline>
+	(() => {
+		const media = window.matchMedia('(prefers-color-scheme: dark)');
+		const stored = () => {
+			try {
+				return localStorage.getItem('theme');
+			} catch {
+				return null;
+			}
+		};
+		const apply = () => {
+			document.documentElement.dataset.theme = stored() ?? (media.matches ? 'dark' : 'light');
+		};
+		apply();
+		media.addEventListener('change', () => {
+			if (!stored()) apply();
+		});
+	})();
+</script>

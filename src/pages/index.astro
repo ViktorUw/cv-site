@@ -1,28 +1,5 @@
 ---
-// Temporary page: shows that every data file loads. Replaced in stage 3.
-import '../styles/global.css';
-import { getContacts, getList, getProfile, getProjects, getUi } from '../lib/i18n';
-
-const lang = 'en';
-const data = {
-	profile: await getProfile(lang),
-	ui: await getUi(lang),
-	flow: await getList('flow', lang),
-	process: await getList('process', lang),
-	projects: await getProjects(lang),
-	skills: await getList('skills', lang),
-	education: await getList('education', lang),
-	contacts: await getContacts(),
-};
+import HomePage from '../components/HomePage.astro';
 ---
 
-<html lang={lang}>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>{data.profile.seoTitle}</title>
-	</head>
-	<body class="p-8 font-mono text-sm">
-		<pre>{JSON.stringify(data, null, 2)}</pre>
-	</body>
-</html>
+<HomePage lang="en" />

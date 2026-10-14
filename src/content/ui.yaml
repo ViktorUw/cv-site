@@ -2,6 +2,7 @@
 
 en:
   skipToContent: Skip to content
+  menu: Sections
   nav:
     about: About
     process: How I work
@@ -31,6 +32,7 @@ en:
 
 pl:
   skipToContent: Przejdź do treści
+  menu: Sekcje
   nav:
     about: O mnie
     process: Jak pracuję
