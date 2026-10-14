@@ -1,0 +1,66 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import FlowDiagram from './FlowDiagram.astro';
+
+interface Props {
+	name: string;
+	role: string;
+	headline: string;
+	intro: string;
+	photo?: ImageMetadata;
+	photoAlt: string;
+	cta: string;
+	flowCaption: string;
+	flow: { id: string; kind: 'trigger' | 'step' | 'result'; tool: string; label: string }[];
+}
+const { name, role, headline, intro, photo, photoAlt, cta, flowCaption, flow } = Astro.props;
+const initials = name
+	.split(' ')
+	.map((part) => part[0])
+	.join('');
+---
+
+<div class="pt-14 pb-16 sm:pt-20 sm:pb-24">
+	<div class="grid items-start gap-x-16 gap-y-8 lg:grid-cols-[minmax(0,1fr)_14rem]">
+		<div>
+			<p class="text-muted">{role}</p>
+			<h1 class="mt-4 max-w-[20ch] text-3xl font-semibold tracking-tight text-balance">{headline}</h1>
+			<p class="mt-6 max-w-[52ch] text-lg text-muted">{intro}</p>
+			<a
+				href="#contact"
+				class="mt-8 inline-flex rounded-md bg-accent px-5 py-3 font-medium text-bg transition-opacity hover:opacity-90"
+			>
+				{cta}
+			</a>
+		</div>
+
+		<div class="order-first w-28 sm:w-36 lg:order-none lg:w-full">
+			{
+				photo ? (
+					<Image
+						src={photo}
+						alt={photoAlt}
+						widths={[224, 448]}
+						sizes="(min-width: 64rem) 14rem, (min-width: 40rem) 9rem, 7rem"
+						loading="eager"
+						fetchpriority="high"
+						class="aspect-[4/5] w-full rounded-lg border border-line object-cover"
+					/>
+				) : (
+					<div
+						role="img"
+						aria-label={photoAlt}
+						class="grid aspect-[4/5] w-full place-items-center rounded-lg border border-dashed border-muted/50 bg-surface text-2xl font-semibold tracking-tight text-muted lg:text-4xl"
+					>
+						{initials}
+					</div>
+				)
+			}
+		</div>
+	</div>
+
+	<div class="mt-14 sm:mt-20">
+		<FlowDiagram caption={flowCaption} nodes={flow} />
+	</div>
+</div>

@@ -69,6 +69,7 @@ const ui = defineCollection({
 			contact: z.string(),
 		}),
 		contactIntro: z.string(),
+		heroCta: z.string(),
 		flowCaption: z.string(),
 		themeToggle: z.string(),
 		languageLabel: z.string(),
@@ -94,9 +95,8 @@ const flow = defineCollection({
 		.object({
 			...ordered,
 			kind: z.enum(['trigger', 'step', 'result']),
-			tool: z.string(),
 		})
-		.extend(localized({ label: z.string() }).shape),
+		.extend(localized({ tool: z.string(), label: z.string() }).shape),
 });
 
 const process = defineCollection({

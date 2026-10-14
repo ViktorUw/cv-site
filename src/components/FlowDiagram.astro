@@ -1,0 +1,194 @@
+---
+// The hero's automation diagram, built from src/content/flow.yaml.
+// Nodes light up one after another while a signal dot runs along the
+// connectors: horizontal from md up, vertical on phones. CSS only.
+interface Props {
+	caption: string;
+	nodes: { id: string; kind: 'trigger' | 'step' | 'result'; tool: string; label: string }[];
+}
+const { caption, nodes } = Astro.props;
+// Seconds each node stays active; the loop is nodes × step long.
+const step = 1.6;
+---
+
+<figure class="flow" style={`--count:${nodes.length};--step:${step}s`}>
+	<figcaption class="mb-5 text-sm text-muted">{caption}</figcaption>
+	<ol class="flex flex-col gap-0 md:flex-row md:items-stretch">
+		{
+			nodes.map((node, index) => (
+				<li class="flex flex-col md:flex-1 md:flex-row md:items-stretch" style={`--i:${index}`}>
+					<div class="flow-node" data-kind={node.kind}>
+						<p class="flow-tool flex items-center gap-1.5 text-sm text-muted">
+							{node.kind === 'trigger' && (
+								<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+									<path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />
+								</svg>
+							)}
+							{node.kind === 'result' && (
+								<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+									<path d="m5 12 5 5 9-10" />
+								</svg>
+							)}
+							{node.tool}
+						</p>
+						<p class="mt-1.5 leading-snug font-medium">{node.label}</p>
+					</div>
+					{index < nodes.length - 1 && (
+						<span class="flow-link" aria-hidden="true">
+							<span class="flow-signal" />
+						</span>
+					)}
+				</li>
+			))
+		}
+	</ol>
+</figure>
+
+<style>
+	/* --i comes from each <li>, so the delay is computed where it is used */
+	.flow {
+		--cycle: calc(var(--count) * var(--step));
+	}
+
+	.flow-node {
+		position: relative;
+		flex: 1;
+		border: 1px solid var(--c-line);
+		border-radius: 0.625rem;
+		background: var(--c-surface);
+		padding: 0.875rem 1rem 1rem;
+		animation: node-active var(--cycle) calc(var(--i) * var(--step)) infinite backwards;
+	}
+
+	.flow-tool {
+		animation: tool-active var(--cycle) calc(var(--i) * var(--step)) infinite backwards;
+	}
+
+	/* Connector between two nodes: vertical on phones, horizontal from md */
+	.flow-link {
+		position: relative;
+		align-self: flex-start;
+		margin-left: 1.5rem;
+		width: 1px;
+		height: 1.75rem;
+		background: var(--c-line);
+	}
+
+	.flow-signal {
+		position: absolute;
+		left: -2.5px;
+		top: 0;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--c-accent);
+		opacity: 0;
+		animation: signal-down var(--cycle) calc(var(--i) * var(--step)) infinite backwards;
+	}
+
+	@media (min-width: 48rem) {
+		.flow-link {
+			align-self: center;
+			flex: 0 0 2rem;
+			margin-left: 0;
+			width: auto;
+			height: 1px;
+		}
+
+		.flow-signal {
+			left: 0;
+			top: -2.5px;
+			animation-name: signal-right;
+		}
+	}
+
+	/* Percentages are tuned for 4 nodes (each owns 25% of the loop) and still
+	   read well with 3 or 5. */
+	@keyframes node-active {
+		0%,
+		100% {
+			border-color: var(--c-line);
+			box-shadow: none;
+		}
+		3%,
+		18% {
+			border-color: var(--c-accent);
+			box-shadow: 0 0 0 3px color-mix(in srgb, var(--c-accent) 14%, transparent);
+		}
+		25% {
+			border-color: var(--c-line);
+			box-shadow: none;
+		}
+	}
+
+	@keyframes tool-active {
+		0%,
+		25%,
+		100% {
+			color: var(--c-muted);
+		}
+		3%,
+		18% {
+			color: var(--c-accent);
+		}
+	}
+
+	@keyframes signal-right {
+		0%,
+		17% {
+			left: 0;
+			opacity: 0;
+		}
+		18% {
+			left: 0;
+			opacity: 1;
+		}
+		25% {
+			left: calc(100% - 6px);
+			opacity: 1;
+		}
+		26%,
+		100% {
+			left: calc(100% - 6px);
+			opacity: 0;
+		}
+	}
+
+	@keyframes signal-down {
+		0%,
+		17% {
+			top: 0;
+			opacity: 0;
+		}
+		18% {
+			top: 0;
+			opacity: 1;
+		}
+		25% {
+			top: calc(100% - 6px);
+			opacity: 1;
+		}
+		26%,
+		100% {
+			top: calc(100% - 6px);
+			opacity: 0;
+		}
+	}
+
+	/* Reduced motion: a still diagram with the result highlighted */
+	@media (prefers-reduced-motion: reduce) {
+		.flow-node,
+		.flow-tool,
+		.flow-signal {
+			animation: none;
+		}
+
+		.flow-node[data-kind='result'] {
+			border-color: var(--c-accent);
+		}
+
+		.flow-node[data-kind='result'] .flow-tool {
+			color: var(--c-accent);
+		}
+	}
+</style>

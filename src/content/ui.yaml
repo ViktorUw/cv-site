@@ -20,6 +20,7 @@ en:
   contactIntro: >-
     Tell me which task eats your team's time. I'll reply within one working day
     with how it could be automated.
+  heroCta: Tell me about your task
   flowCaption: Example of an automation I build
   themeToggle: Switch light or dark theme
   languageLabel: Language
@@ -58,6 +59,7 @@ pl:
   contactIntro: >-
     Napisz, które zadanie zabiera Twojemu zespołowi najwięcej czasu. Odpowiem w
     ciągu jednego dnia roboczego z propozycją, jak je zautomatyzować.
+  heroCta: Opisz swoje zadanie
   flowCaption: Przykład automatyzacji, którą buduję
   themeToggle: Przełącz jasny lub ciemny motyw
   languageLabel: Język

@@ -23,7 +23,7 @@ EN is the default at `/`, PL lives at `/pl/` (Astro built-in i18n routing). Ever
 
 ## Design (concept A, "flow diagram")
 
-- Hero: inline SVG automation flow (trigger → steps → result) whose nodes light up in sequence. This is the only ambient animation on the page.
+- Hero: automation flow from `flow.yaml` (trigger → steps → result), built as an HTML list with CSS-only animation in `FlowDiagram.astro`: nodes light up in sequence and a signal dot runs along the connectors. This is the only ambient animation on the page. Photo sits beside the text; without `photo` in profile.yaml a dashed initials placeholder shows.
 - A thin connector line on the left links the sections like nodes in n8n.
 - Tokens: bg `#EEF1F4`, ink `#1B2330`, muted `#5B6675`, lines `#C9D1DB`, accent `#2B59C3` (one accent only). Dark theme uses the same roles.
 - Font: Schibsted Grotesk only (self-hosted via Fontsource), hierarchy through weight and size.
