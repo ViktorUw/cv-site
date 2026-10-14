@@ -1,0 +1,20 @@
+order: 4
+status: live
+stack: [C++]
+links:
+  {}
+  # TODO: add the repository link
+  # github: https://github.com/your-name/group-organizer
+
+# TODO: describe what the app actually does, this text is a placeholder
+en:
+  title: Group Organizer
+  summary: >-
+    A C++ application for organizing people into groups and managing their
+    schedules, written with a focus on clean structure and memory-safe code.
+pl:
+  title: Group Organizer
+  summary: >-
+    Aplikacja w C++ do dzielenia osób na grupy i zarządzania ich harmonogramem,
+    napisana z naciskiem na przejrzystą strukturę i bezpieczne zarządzanie
+    pamięcią.

@@ -1,0 +1,65 @@
+# Main information about you. Used in Hero, About and SEO.
+
+name: Viktor Vasylyshyn
+
+# TODO: put your photo at src/assets/photo.jpg and uncomment the line below
+# photo: ../assets/photo.jpg
+
+# TODO (later): put a PDF in public/ and set its path, e.g. /cv.pdf.
+# While this stays empty, the download button is hidden.
+# cvUrl: /cv.pdf
+
+en:
+  location: Wrocław, Poland
+  role: AI automation and Python developer
+  headline: I automate repetitive work in your business with Make, n8n and Zapier.
+  intro: >-
+    Requests that sort themselves, data that moves between your tools without
+    copy-pasting, reports that arrive on time. You describe the routine, I build
+    the workflow that takes it off your plate.
+  photoAlt: Portrait of Viktor Vasylyshyn
+  about:
+    - >-
+      I'm Viktor, a Computer Science student at the University of Wrocław
+      (graduating in 2026) with an earlier background in applied computer
+      science and measurement systems.
+    - >-
+      Measurement taught me to look at a process the way an engineer looks at an
+      instrument: where the signal comes from, where it gets lost and how to make
+      the result reliable. I apply the same approach to automation: first
+      understand how the work is done today, then remove the manual steps.
+    - >-
+      Behind the no-code tools I write Python, package apps in Docker and set up
+      CI/CD, so when a ready-made integration isn't enough, I can write the
+      missing piece myself.
+  seoTitle: Viktor Vasylyshyn | AI automation with Make, n8n and Zapier
+  seoDescription: >-
+    I build AI automations with Make, n8n and Zapier that take repetitive work
+    off small teams. Python developer based in Wrocław, Poland.
+
+pl:
+  location: Wrocław, Polska
+  role: Automatyzacje AI i Python
+  headline: Automatyzuję powtarzalną pracę w Twojej firmie za pomocą Make, n8n i Zapier.
+  intro: >-
+    Zgłoszenia, które same trafiają tam, gdzie trzeba, dane przenoszone między
+    narzędziami bez kopiowania, raporty gotowe na czas. Opisujesz rutynę, a ja
+    buduję proces, który zdejmie ją z Twojej głowy.
+  photoAlt: Portret Viktora Vasylyshyna
+  about:
+    - >-
+      Nazywam się Viktor, studiuję informatykę na Uniwersytecie Wrocławskim
+      (ukończenie w 2026 roku), a wcześniej zajmowałem się informatyką stosowaną
+      i systemami pomiarowymi.
+    - >-
+      Metrologia nauczyła mnie patrzeć na proces jak inżynier na przyrząd: skąd
+      pochodzi sygnał, gdzie się gubi i jak sprawić, żeby wynik był wiarygodny.
+      Tak samo podchodzę do automatyzacji: najpierw rozumiem, jak praca wygląda
+      dziś, potem usuwam ręczne kroki.
+    - >-
+      Za narzędziami no-code stoi Python, aplikacje w Dockerze i CI/CD, więc gdy
+      gotowa integracja nie wystarcza, sam dopisuję brakujący element.
+  seoTitle: Viktor Vasylyshyn | Automatyzacje AI w Make, n8n i Zapier
+  seoDescription: >-
+    Buduję automatyzacje AI w Make, n8n i Zapier, które zdejmują powtarzalną
+    pracę z małych zespołów. Programista Python z Wrocławia.

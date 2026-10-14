@@ -1,0 +1,18 @@
+# Placeholder for future automation demos. While status is `planned`, the card
+# is shown as "in progress" without links. When a demo is ready: set
+# status: live, add links and rewrite the text.
+order: 1
+status: planned
+stack: [n8n, Make, OpenAI API]
+
+en:
+  title: AI automation demos
+  summary: >-
+    Working examples of automations for typical business tasks: handling
+    incoming requests, syncing data between tools and generating reports.
+pl:
+  title: Dema automatyzacji AI
+  summary: >-
+    Działające przykłady automatyzacji typowych zadań w firmie: obsługa
+    przychodzących zapytań, synchronizacja danych między narzędziami i
+    generowanie raportów.

@@ -1,0 +1,30 @@
+# Contacts, in display order. href is the link, label is what visitors see.
+# kind: email | linkedin | github | telegram | phone | other
+
+- id: email
+  kind: email
+  href: mailto:vvasylyshyn.viktor@gmail.com
+  label: vvasylyshyn.viktor@gmail.com
+
+# TODO: uncomment and fill in the rest
+
+# - id: linkedin
+#   kind: linkedin
+#   href: https://www.linkedin.com/in/your-profile/
+#   label: linkedin.com/in/your-profile
+
+# - id: github
+#   kind: github
+#   href: https://github.com/your-name
+#   label: github.com/your-name
+
+# - id: telegram
+#   kind: telegram
+#   href: https://t.me/your_handle
+#   label: "@your_handle"
+
+# Phone number: think twice before publishing it, bots collect numbers from websites
+# - id: phone
+#   kind: phone
+#   href: tel:+48000000000
+#   label: +48 000 000 000

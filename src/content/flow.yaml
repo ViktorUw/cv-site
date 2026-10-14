@@ -1,0 +1,27 @@
+# The automation diagram in the Hero section, drawn left to right
+# (top to bottom on phones). Keep it to 4–5 nodes so it stays readable.
+# kind: trigger (where it starts), step, result (what the client gets)
+
+- id: inquiry
+  kind: trigger
+  tool: Web form
+  en: { label: New inquiry arrives }
+  pl: { label: Wpływa nowe zapytanie }
+
+- id: classify
+  kind: step
+  tool: AI
+  en: { label: AI sorts it and drafts a reply }
+  pl: { label: AI je kategoryzuje i szkicuje odpowiedź }
+
+- id: crm
+  kind: step
+  tool: CRM
+  en: { label: Contact is saved to the CRM }
+  pl: { label: Kontakt trafia do CRM }
+
+- id: notify
+  kind: result
+  tool: Slack
+  en: { label: The right person gets a ready task }
+  pl: { label: Właściwa osoba dostaje gotowe zadanie }

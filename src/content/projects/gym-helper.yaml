@@ -1,0 +1,22 @@
+# One file = one project. `order` sets the position (smaller = higher).
+order: 2
+status: live
+stack: [Python, Django, Docker, CI/CD]
+links:
+  {}
+  # TODO: add the repository link
+  # github: https://github.com/your-name/gym-helper
+
+# TODO: check the description, I guessed what the app does from its name
+en:
+  title: Gym Helper
+  summary: >-
+    A Django web app for planning workouts and tracking progress. It runs in
+    Docker containers, and every change goes through an automated CI/CD
+    pipeline with tests before deployment.
+pl:
+  title: Gym Helper
+  summary: >-
+    Aplikacja webowa w Django do planowania treningów i śledzenia postępów.
+    Działa w kontenerach Docker, a każda zmiana przechodzi przez automatyczny
+    pipeline CI/CD z testami przed wdrożeniem.

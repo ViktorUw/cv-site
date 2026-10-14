@@ -1,0 +1,49 @@
+# "How I work": the steps of working together, in order.
+
+- id: understand
+  en:
+    title: Understand the routine
+    text: >-
+      We go through how the task is done today: who does what, which tools are
+      involved and where time is lost.
+  pl:
+    title: Poznaję rutynę
+    text: >-
+      Przechodzimy przez to, jak zadanie wygląda dziś: kto co robi, jakie
+      narzędzia są w użyciu i gdzie ucieka czas.
+
+- id: design
+  en:
+    title: Design the workflow
+    text: >-
+      I map the automation step by step and agree with you on what it will
+      handle and what stays manual, before anything is built.
+  pl:
+    title: Projektuję przepływ
+    text: >-
+      Rozpisuję automatyzację krok po kroku i ustalam z Tobą, co ma robić, a co
+      zostaje ręczne, zanim cokolwiek powstanie.
+
+- id: build
+  en:
+    title: Build and test
+    text: >-
+      I build the workflow and run it on real examples, including the awkward
+      ones: empty fields, duplicates, a service that doesn't respond.
+  pl:
+    title: Buduję i testuję
+    text: >-
+      Buduję przepływ i sprawdzam go na prawdziwych przykładach, także tych
+      trudnych: puste pola, duplikaty, usługa, która nie odpowiada.
+
+- id: handover
+  en:
+    title: Hand it over
+    text: >-
+      You get a short guide and a walkthrough, so your team knows what runs and
+      how to change it. Adjustments after launch are part of the job.
+  pl:
+    title: Przekazuję
+    text: >-
+      Dostajesz krótką instrukcję i omówienie, żeby zespół wiedział, co działa i
+      jak to zmienić. Poprawki po uruchomieniu są częścią pracy.

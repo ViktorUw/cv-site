@@ -1,0 +1,59 @@
+# Interface text: menu, section titles, buttons, labels.
+
+en:
+  skipToContent: Skip to content
+  nav:
+    about: About
+    process: How I work
+    projects: Projects
+    skills: Skills
+    education: Education
+    contact: Contact
+  sections:
+    about: About me
+    process: How I work
+    projects: Projects
+    skills: Skills
+    education: Education
+    contact: Let's talk about your process
+  contactIntro: >-
+    Tell me which task eats your team's time. I'll reply within one working day
+    with how it could be automated.
+  flowCaption: Example of an automation I build
+  themeToggle: Switch light or dark theme
+  languageLabel: Language
+  downloadCv: Download CV (PDF)
+  projectLinks:
+    code: Source code
+    demo: Live demo
+  plannedBadge: In progress
+  footer: Built with Astro.
+
+pl:
+  skipToContent: Przejdź do treści
+  nav:
+    about: O mnie
+    process: Jak pracuję
+    projects: Projekty
+    skills: Umiejętności
+    education: Edukacja
+    contact: Kontakt
+  sections:
+    about: O mnie
+    process: Jak pracuję
+    projects: Projekty
+    skills: Umiejętności
+    education: Edukacja
+    contact: Porozmawiajmy o Twoim procesie
+  contactIntro: >-
+    Napisz, które zadanie zabiera Twojemu zespołowi najwięcej czasu. Odpowiem w
+    ciągu jednego dnia roboczego z propozycją, jak je zautomatyzować.
+  flowCaption: Przykład automatyzacji, którą buduję
+  themeToggle: Przełącz jasny lub ciemny motyw
+  languageLabel: Język
+  downloadCv: Pobierz CV (PDF)
+  projectLinks:
+    code: Kod źródłowy
+    demo: Wersja demo
+  plannedBadge: W przygotowaniu
+  footer: Zbudowane w Astro.
