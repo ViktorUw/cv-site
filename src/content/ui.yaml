@@ -28,6 +28,14 @@ en:
     code: Source code
     demo: Live demo
   plannedBadge: In progress
+  stackLabel: Tools used
+  contactKinds:
+    email: Email
+    linkedin: LinkedIn
+    github: GitHub
+    telegram: Telegram
+    phone: Phone
+    other: Link
   footer: Built with Astro.
 
 pl:
@@ -58,4 +66,12 @@ pl:
     code: Kod źródłowy
     demo: Wersja demo
   plannedBadge: W przygotowaniu
+  stackLabel: Użyte narzędzia
+  contactKinds:
+    email: E-mail
+    linkedin: LinkedIn
+    github: GitHub
+    telegram: Telegram
+    phone: Telefon
+    other: Link
   footer: Zbudowane w Astro.

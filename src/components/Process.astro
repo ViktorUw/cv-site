@@ -1,0 +1,31 @@
+---
+// The steps form a small flow of their own: numbered nodes joined by a line,
+// vertical on phones and horizontal from the lg breakpoint.
+interface Props {
+	steps: { id: string; title: string; text: string }[];
+}
+const { steps } = Astro.props;
+---
+
+<ol class="grid gap-10 lg:grid-cols-4 lg:gap-8">
+	{
+		steps.map((step, index) => (
+			<li class="relative pl-14 lg:pt-14 lg:pl-0">
+				<span
+					aria-hidden="true"
+					class="absolute top-0 left-0 grid size-9 place-items-center rounded-full border border-line bg-surface text-sm font-medium tabular-nums"
+				>
+					{index + 1}
+				</span>
+				{index < steps.length - 1 && (
+					<span
+						aria-hidden="true"
+						class="absolute top-11 -bottom-8 left-[1.125rem] w-px bg-line lg:top-[1.125rem] lg:-right-6 lg:bottom-auto lg:left-11 lg:h-px lg:w-auto"
+					/>
+				)}
+				<h3 class="text-lg font-semibold tracking-tight">{step.title}</h3>
+				<p class="mt-2 text-muted">{step.text}</p>
+			</li>
+		))
+	}
+</ol>

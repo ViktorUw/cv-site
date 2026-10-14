@@ -1,0 +1,61 @@
+---
+interface Props {
+	title: string;
+	summary: string;
+	stack: string[];
+	status: 'live' | 'planned';
+	links: { github?: string; demo?: string };
+	labels: { code: string; demo: string; planned: string; stack: string };
+}
+const { title, summary, stack, status, links, labels } = Astro.props;
+const planned = status === 'planned';
+const linkList = [
+	{ href: links.github, label: labels.code },
+	{ href: links.demo, label: labels.demo },
+].filter((link): link is { href: string; label: string } => Boolean(link.href));
+---
+
+<article
+	class:list={[
+		'grid gap-x-12 gap-y-4 md:grid-cols-[minmax(0,1fr)_19rem]',
+		planned ? 'rounded-lg border border-dashed border-muted/50 p-6 sm:p-8' : 'border-t border-line py-8',
+	]}
+>
+	<div>
+		<h3 class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xl font-semibold tracking-tight">
+			{title}
+			{
+				planned && (
+					<span class="rounded-full border border-accent/40 px-2.5 py-0.5 text-sm font-medium tracking-normal text-accent">
+						{labels.planned}
+					</span>
+				)
+			}
+		</h3>
+		<p class="mt-3 max-w-[60ch] text-muted">{summary}</p>
+		{
+			linkList.length > 0 && (
+				<ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+					{linkList.map((link) => (
+						<li>
+							<a
+								href={link.href}
+								target="_blank"
+								rel="noopener"
+								class="inline-flex items-center gap-1.5 font-medium text-accent underline decoration-accent/30 hover:decoration-accent"
+							>
+								{link.label}
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+									<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
+								</svg>
+							</a>
+						</li>
+					))}
+				</ul>
+			)
+		}
+	</div>
+	<ul class="flex flex-wrap content-start gap-2 md:justify-end" aria-label={labels.stack}>
+		{stack.map((tool) => <li class="rounded border border-line px-2 py-0.5 text-sm text-muted">{tool}</li>)}
+	</ul>
+</article>

@@ -1,5 +1,5 @@
 # One file = one project. `order` sets the position (smaller = higher).
-order: 2
+order: 1
 status: live
 stack: [Python, Django, Docker, CI/CD]
 links:

@@ -1,0 +1,10 @@
+---
+interface Props {
+	paragraphs: string[];
+}
+const { paragraphs } = Astro.props;
+---
+
+<div class="max-w-[62ch] space-y-5 text-lg text-ink/90">
+	{paragraphs.map((text) => <p>{text}</p>)}
+</div>

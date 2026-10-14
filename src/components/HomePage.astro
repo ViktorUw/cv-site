@@ -4,15 +4,33 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from './Header.astro';
 import Section from './Section.astro';
-import { getProfile, getUi, type Lang } from '../lib/i18n';
+import About from './About.astro';
+import Process from './Process.astro';
+import Projects from './Projects.astro';
+import Skills from './Skills.astro';
+import Education from './Education.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+import { getContacts, getList, getProfile, getProjects, getUi, type Lang } from '../lib/i18n';
 
 interface Props {
 	lang: Lang;
 }
 const { lang } = Astro.props;
-const profile = await getProfile(lang);
-const ui = await getUi(lang);
-const sectionIds = ['about', 'process', 'projects', 'skills', 'education', 'contact'] as const;
+const [profile, ui, steps, projects, skills, education, contacts] = await Promise.all([
+	getProfile(lang),
+	getUi(lang),
+	getList('process', lang),
+	getProjects(lang),
+	getList('skills', lang),
+	getList('education', lang),
+	getContacts(),
+]);
+const projectLabels = {
+	...ui.projectLinks,
+	planned: ui.plannedBadge,
+	stack: ui.stackLabel,
+};
 ---
 
 <BaseLayout lang={lang} title={profile.seoTitle} description={profile.seoDescription}>
@@ -35,13 +53,37 @@ const sectionIds = ['about', 'process', 'projects', 'skills', 'education', 'cont
 
 		<!-- The rail: one line running through every section -->
 		<div class="border-l border-line pl-(--rail-gap) [--rail-gap:--spacing(6)] sm:[--rail-gap:--spacing(12)]">
-			{
-				sectionIds.map((id) => (
-					<Section id={id} title={ui.sections[id]}>
-						<p class="text-muted">Content arrives in stage 4.</p>
-					</Section>
-				))
-			}
+			<Section id="about" title={ui.sections.about}>
+				<About paragraphs={profile.about} />
+			</Section>
+
+			<Section id="process" title={ui.sections.process}>
+				<Process steps={steps} />
+			</Section>
+
+			<Section id="projects" title={ui.sections.projects}>
+				<Projects projects={projects} labels={projectLabels} />
+			</Section>
+
+			<Section id="skills" title={ui.sections.skills}>
+				<Skills groups={skills} />
+			</Section>
+
+			<Section id="education" title={ui.sections.education}>
+				<Education entries={education} />
+			</Section>
+
+			<Section id="contact" title={ui.sections.contact}>
+				<Contact
+					intro={ui.contactIntro}
+					contacts={contacts}
+					kindLabels={ui.contactKinds}
+					cvUrl={profile.cvUrl}
+					cvLabel={ui.downloadCv}
+				/>
+			</Section>
 		</div>
 	</main>
+
+	<Footer name={profile.name} note={ui.footer} />
 </BaseLayout>

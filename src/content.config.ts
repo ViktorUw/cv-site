@@ -75,6 +75,15 @@ const ui = defineCollection({
 		downloadCv: z.string(),
 		projectLinks: z.object({ code: z.string(), demo: z.string() }),
 		plannedBadge: z.string(),
+		stackLabel: z.string(),
+		contactKinds: z.object({
+			email: z.string(),
+			linkedin: z.string(),
+			github: z.string(),
+			telegram: z.string(),
+			phone: z.string(),
+			other: z.string(),
+		}),
 		footer: z.string(),
 	}),
 });

@@ -1,0 +1,34 @@
+---
+import ProjectItem from './ProjectItem.astro';
+
+type Project = {
+	id: string;
+	title: string;
+	summary: string;
+	stack: string[];
+	status: 'live' | 'planned';
+	links: { github?: string; demo?: string };
+};
+
+interface Props {
+	projects: Project[];
+	labels: { code: string; demo: string; planned: string; stack: string };
+}
+const { projects, labels } = Astro.props;
+const live = projects.filter((project) => project.status === 'live');
+const planned = projects.filter((project) => project.status === 'planned');
+---
+
+<div class="border-b border-line">
+	{live.map((project) => <ProjectItem {...project} labels={labels} />)}
+</div>
+
+{
+	planned.length > 0 && (
+		<div class="mt-10 space-y-6">
+			{planned.map((project) => (
+				<ProjectItem {...project} labels={labels} />
+			))}
+		</div>
+	)
+}

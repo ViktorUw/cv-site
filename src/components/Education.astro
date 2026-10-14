@@ -1,0 +1,30 @@
+---
+interface Props {
+	entries: {
+		id: string;
+		start: string;
+		end: string;
+		institution: string;
+		degree: string;
+		note?: string;
+	}[];
+}
+const { entries } = Astro.props;
+---
+
+<ol class="max-w-3xl">
+	{
+		entries.map((entry) => (
+			<li class="grid gap-x-10 gap-y-1 border-t border-line py-6 sm:grid-cols-[9rem_minmax(0,1fr)]">
+				<p class="text-muted tabular-nums">
+					{entry.start}–{entry.end}
+				</p>
+				<div>
+					<h3 class="text-lg font-semibold tracking-tight">{entry.degree}</h3>
+					<p class="mt-1">{entry.institution}</p>
+					{entry.note && <p class="mt-2 text-muted">{entry.note}</p>}
+				</div>
+			</li>
+		))
+	}
+</ol>

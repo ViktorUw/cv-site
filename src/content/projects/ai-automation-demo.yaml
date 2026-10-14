@@ -1,7 +1,7 @@
 # Placeholder for future automation demos. While status is `planned`, the card
 # is shown as "in progress" without links. When a demo is ready: set
 # status: live, add links and rewrite the text.
-order: 1
+order: 5
 status: planned
 stack: [n8n, Make, OpenAI API]
 

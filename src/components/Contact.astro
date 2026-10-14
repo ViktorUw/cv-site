@@ -1,0 +1,48 @@
+---
+interface Props {
+	intro: string;
+	contacts: { id: string; kind: string; href: string; label: string }[];
+	kindLabels: Record<string, string>;
+	cvUrl?: string;
+	cvLabel: string;
+}
+const { intro, contacts, kindLabels, cvUrl, cvLabel } = Astro.props;
+const isExternal = (href: string) => href.startsWith('http');
+---
+
+<p class="max-w-[52ch] text-lg text-muted">{intro}</p>
+
+<dl class="mt-10 max-w-3xl">
+	{
+		contacts.map((contact) => (
+			<div class="grid gap-x-10 gap-y-1 border-t border-line py-5 sm:grid-cols-[9rem_minmax(0,1fr)] sm:items-baseline">
+				<dt class="text-muted">{kindLabels[contact.kind]}</dt>
+				<dd>
+					<a
+						href={contact.href}
+						target={isExternal(contact.href) ? '_blank' : undefined}
+						rel={isExternal(contact.href) ? 'noopener' : undefined}
+						class="text-lg font-medium break-words underline decoration-line underline-offset-4 transition-colors hover:text-accent hover:decoration-accent sm:text-xl"
+					>
+						{contact.label}
+					</a>
+				</dd>
+			</div>
+		))
+	}
+</dl>
+
+{
+	cvUrl && (
+		<a
+			href={cvUrl}
+			download
+			class="mt-10 inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 font-medium text-bg transition-opacity hover:opacity-90"
+		>
+			<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<path d="M12 4v11M7 10l5 5 5-5M5 20h14" />
+			</svg>
+			{cvLabel}
+		</a>
+	)
+}

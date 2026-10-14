@@ -1,4 +1,4 @@
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 
 export const languages = ['en', 'pl'] as const;
 export type Lang = (typeof languages)[number];
@@ -29,10 +29,11 @@ export async function getList<C extends 'flow' | 'process' | 'skills' | 'educati
 	collection: C,
 	lang: Lang,
 ) {
-	const entries = await getCollection(collection);
+	// The cast keeps the exact type of the requested collection instead of a union of all four.
+	const entries = (await getCollection(collection)) as CollectionEntry<C>[];
 	return entries
 		.sort((a, b) => a.data.order - b.data.order)
-		.map((entry) => ({ id: entry.id, ...localize(entry.data, lang) }));
+		.map((entry) => ({ id: entry.id, ...localize(entry.data as CollectionEntry<C>['data'], lang) }));
 }
 
 export async function getProjects(lang: Lang) {
