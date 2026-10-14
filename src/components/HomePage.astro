@@ -1,6 +1,8 @@
 ---
 // The whole one-page site. src/pages/index.astro and src/pages/pl/index.astro
 // render it with their language.
+import { getAbsoluteLocaleUrl } from 'astro:i18n';
+import { getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from './Header.astro';
 import Hero from './Hero.astro';
@@ -28,6 +30,24 @@ const [profile, ui, flow, steps, projects, skills, education, contacts] = await 
 	getList('education', lang),
 	getContacts(),
 ]);
+// schema.org data: tells search engines this page is about a person
+const photo = profile.photo && (await getImage({ src: profile.photo, width: 448 }));
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: profile.name,
+	url: getAbsoluteLocaleUrl(lang),
+	jobTitle: profile.role,
+	description: profile.seoDescription,
+	homeLocation: { '@type': 'Place', name: profile.location },
+	...(photo && { image: new URL(photo.src, Astro.site).href }),
+	alumniOf: education
+		.filter((entry) => !entry.institution.includes('TODO'))
+		.map((entry) => ({ '@type': 'CollegeOrUniversity', name: entry.institution })),
+	knowsAbout: skills.flatMap((group) => group.items),
+	sameAs: contacts.filter((contact) => contact.href.startsWith('http')).map((contact) => contact.href),
+};
+
 const projectLabels = {
 	...ui.projectLinks,
 	planned: ui.plannedBadge,
@@ -35,7 +55,13 @@ const projectLabels = {
 };
 ---
 
-<BaseLayout lang={lang} title={profile.seoTitle} description={profile.seoDescription}>
+<BaseLayout
+	lang={lang}
+	title={profile.seoTitle}
+	description={profile.seoDescription}
+	imageAlt={profile.headline}
+	jsonLd={jsonLd}
+>
 	<a
 		href="#main"
 		class="sr-only rounded-md bg-ink px-4 py-2 text-bg focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
