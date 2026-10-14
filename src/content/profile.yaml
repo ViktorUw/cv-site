@@ -19,18 +19,20 @@ en:
   photoAlt: Portrait of Viktor Vasylyshyn
   about:
     - >-
-      I'm Viktor, a Computer Science student at the University of Wrocław
-      (graduating in 2026) with an earlier background in applied computer
-      science and measurement systems.
+      I'm Viktor. In 2026 I graduated from the University of Wrocław with a
+      degree in Applied Computer Science and Measurement Systems. My diploma
+      project was Gym Tracker, a mobile app that logs workouts without an
+      internet connection.
     - >-
-      Measurement taught me to look at a process the way an engineer looks at an
-      instrument: where the signal comes from, where it gets lost and how to make
-      the result reliable. I apply the same approach to automation: first
-      understand how the work is done today, then remove the manual steps.
+      Studying measurement left me with a habit: before changing a process, I
+      look for where the information comes from and where it gets lost. In small
+      teams it usually gets lost between tools, in a spreadsheet someone updates
+      by hand or an email nobody forwarded. Automation is how I fix that.
     - >-
-      Behind the no-code tools I write Python, package apps in Docker and set up
-      CI/CD, so when a ready-made integration isn't enough, I can write the
-      missing piece myself.
+      I'm starting my career in IT now, so there's no long list of past clients
+      here yet. What you get instead is my full attention on your project, and
+      enough Python, Docker and CI/CD to write the missing piece myself when a
+      ready-made integration falls short.
   seoTitle: Viktor Vasylyshyn | AI automation with Make, n8n and Zapier
   seoDescription: >-
     I build AI automations with Make, n8n and Zapier that take repetitive work
@@ -47,17 +49,21 @@ pl:
   photoAlt: Portret Viktora Vasylyshyna
   about:
     - >-
-      Nazywam się Viktor, studiuję informatykę na Uniwersytecie Wrocławskim
-      (ukończenie w 2026 roku), a wcześniej zajmowałem się informatyką stosowaną
-      i systemami pomiarowymi.
+      Nazywam się Viktor. W 2026 roku ukończyłem informatykę stosowaną i systemy
+      pomiarowe na Uniwersytecie Wrocławskim. Moim projektem dyplomowym był Gym
+      Tracker, aplikacja mobilna do zapisywania treningów, która działa bez
+      internetu.
     - >-
-      Metrologia nauczyła mnie patrzeć na proces jak inżynier na przyrząd: skąd
-      pochodzi sygnał, gdzie się gubi i jak sprawić, żeby wynik był wiarygodny.
-      Tak samo podchodzę do automatyzacji: najpierw rozumiem, jak praca wygląda
-      dziś, potem usuwam ręczne kroki.
+      Studia z systemów pomiarowych zostawiły mi nawyk: zanim zmienię proces,
+      sprawdzam, skąd pochodzą informacje i gdzie się gubią. W małych zespołach
+      zwykle gubią się między narzędziami, w arkuszu aktualizowanym ręcznie albo
+      w mailu, którego nikt nie przekazał dalej. Automatyzacja to mój sposób,
+      żeby to naprawić.
     - >-
-      Za narzędziami no-code stoi Python, aplikacje w Dockerze i CI/CD, więc gdy
-      gotowa integracja nie wystarcza, sam dopisuję brakujący element.
+      Właśnie zaczynam karierę w IT, więc nie znajdziesz tu jeszcze długiej listy
+      klientów. Zamiast tego dostajesz moją pełną uwagę przy Twoim projekcie i
+      wystarczająco dużo Pythona, Dockera i CI/CD, żeby samodzielnie dopisać
+      brakujący element, gdy gotowa integracja nie wystarcza.
   seoTitle: Viktor Vasylyshyn | Automatyzacje AI w Make, n8n i Zapier
   seoDescription: >-
     Buduję automatyzacje AI w Make, n8n i Zapier, które zdejmują powtarzalną
